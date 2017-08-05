@@ -66,6 +66,18 @@ function fizzBuzz(num) {
 }
 
 function isPrime(num) {
+  if (num===1) {
+    return false;
+  } else if (num === 2) {
+    return true;
+  } else {
+    for (var factor = 2; factor*factor <= num; factor++) {
+      if (num % factor === 0) {
+        return false;
+      }
+    }
+  return true;
+  }
   //return true if num is prime.
   //otherwise return false
   //hint: a prime number is only evenly divisible by itself and 1
