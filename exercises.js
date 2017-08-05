@@ -87,17 +87,23 @@ function isPrime(num) {
 
 function returnFirst(arr) {
   //return the first item from the array
+  return arr[0];
 }
 
 function returnLast(arr) {
+  return arr[arr.length - 1];
   //return the last item of the array
 }
 
 function getArrayLength(arr) {
+  return arr.length;
   //return the length of the array
 }
 
 function incrementByOne(arr) {
+  for (var pos = 0; pos < arr.length; pos++) {
+    arr[pos]++;
+  }
   //arr is an array of integers  
   //increase each integer by one
   //return the array
