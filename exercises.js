@@ -112,9 +112,12 @@ function incrementByOne(arr) {
 function addItemToArray(arr, item) {
   //add the item to the end of the array
   //return the array
+  arr.push(item);
 }
 
 function addItemToFront(arr, item) {
+  arr.unshift(item);
+
   //add the item to the front of the array
   //return the array
   //hint: use the array method .unshift
