@@ -38,6 +38,7 @@ function isInRange(num) {
 }
 
 function isInteger(num) {
+  return (num===Math.floor(num));
   //return true if num is an integer
   //0.8 -> false
   //1 -> true
@@ -58,7 +59,7 @@ function fizzBuzz(num) {
   if (num % 5 === 0) {
     outputString += 'buzz';
   }
-  if (str.length > 0) {
+  if (outputString.length > 0) {
     return outputString;
   } else {
     return num;
@@ -66,17 +67,18 @@ function fizzBuzz(num) {
 }
 
 function isPrime(num) {
-  if (num===1) {
+  if (num===1 || num===0) {
     return false;
   } else if (num === 2) {
     return true;
   } else {
+    var isPrime = true;
     for (var factor = 2; factor*factor <= num; factor++) {
       if (num % factor === 0) {
-        return false;
+        isPrime = false;
       }
     }
-  return true;
+    return isPrime;
   }
   //return true if num is prime.
   //otherwise return false
@@ -104,6 +106,7 @@ function incrementByOne(arr) {
   for (var pos = 0; pos < arr.length; pos++) {
     arr[pos]++;
   }
+  return arr;
   //arr is an array of integers  
   //increase each integer by one
   //return the array
@@ -113,17 +116,25 @@ function addItemToArray(arr, item) {
   //add the item to the end of the array
   //return the array
   arr.push(item);
+  return arr;
 }
 
 function addItemToFront(arr, item) {
   arr.unshift(item);
-
+  return arr;
   //add the item to the front of the array
   //return the array
   //hint: use the array method .unshift
 }
 
 function wordsToSentence(words) {
+  var output = words[0];
+  if (words.length > 1) {
+    for (var i = 1; i < words.length; i++) {
+      output = output + ' ' + words[i];
+    }
+  }
+  return output;
   //words is an array of strings
   //return a string that is all of the words concatenated together
   //spaces need to be between each word
@@ -131,21 +142,45 @@ function wordsToSentence(words) {
 }
 
 function contains(arr, item) {
+  var output = false;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]===item) {
+      output = true;
+    }
+  }
+  return output;
   //check to see if item is inside of arr
   //return true if it is, otherwise return false
 }
 
 function addNumbers(numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
   //numbers is an array of integers.
   //add all of the integers and return the value
 }
 
 function averageTestScore(testScores) {
+  var sum = 0;
+  for (var i = 0; i < testScores.length; i++) {
+    sum += testScores[i];
+  }
+  return sum / testScores.length;
   //testScores is an array.  Iterate over testScores and compute the average.
   //return the average
 }
 
 function largestNumber(numbers) {
+  var max = numbers[0];
+  for (var i = 1; i < numbers.length; i++) {
+    if (max < numbers[i]) {
+      max = numbers[i];
+    }
+  }
+  return max;
   //numbers is an array of integers
   //return the largest integer
 }
